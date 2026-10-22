@@ -27,3 +27,8 @@ test("returns an empty string when nothing alphanumeric remains", () => {
   assert.equal(slugify("  !!! --- "), "");
   assert.equal(slugify(""), "");
 });
+
+test("leaves an existing slug unchanged", () => {
+  assert.equal(slugify("hello-world-2"), "hello-world-2");
+  assert.equal(slugify(slugify("  Hello, World! ")), "hello-world");
+});
